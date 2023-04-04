@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bill;
 use App\Models\MemberOfBill;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
@@ -27,9 +28,10 @@ class BillController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $phone)
     {
-        return Bill::where('id', $id)->get();
+        $bill = BIll::where('owner_id', User::where('phone', $phone)->first()->id)->get();
+        return $bill;
     }
 
     /**

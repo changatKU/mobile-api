@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Bill::class);
             $table->foreignIdFor(\App\Models\User::class);
+            $table->string('owner_name')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('topic')->nullable();
             $table->double('amount');
             $table->integer('status')->default(false);
             $table->timestamps();

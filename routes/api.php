@@ -30,3 +30,4 @@ Route::delete('/bills/{id}', [\App\Http\Controllers\BillController::class, 'dest
 
 Route::apiResource('/membersOfBill', \App\Http\Controllers\MemberOfBillController::class);
 Route::get('/membersOfBill/{id}', [\App\Http\Controllers\MemberOfBillController::class, 'show']);
+Route::get('/membersOfBill/friend/{id}', [\App\Http\Controllers\MemberOfBillController::class, 'getFriendBill']);

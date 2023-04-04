@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -20,7 +21,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->user_id = User::where('phone', $request->get('phone'))->get('id')->first()->id;
+        $post->topic = $request->get('topic');
+        $post->description = $request->get('description');
+        $post->location = $request->get('location');
+        $post->save();
+        return $post;
     }
 
     /**

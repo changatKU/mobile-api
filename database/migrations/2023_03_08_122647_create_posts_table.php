@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class);
             $table->string('topic');
             $table->string('location');
-            $table->string('date');
-            $table->string('time');
+            $table->string('date')->nullable();
+            $table->string('time')->nullable();
             $table->string('description');
             $table->timestamps();
         });
